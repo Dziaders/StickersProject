@@ -25,20 +25,4 @@ export class FileUploadComponent implements OnInit {
 	onUpload(){
 		this.fileUploadService.upload(this.file);
 	}
-
-	
-///////////////////////////////////////////////////////////
-	// onUpload() {
-	// 	// this.loading = !this.loading;
-	// 	console.log(this.file);
-	// 	this.fileUploadService.upload(this.file).subscribe(
-	// 		(event: any) => {
-				
-	// 				this.shortLink = event.link;
-
-	// 				this.loading = false; 
-				
-	// 		}
-	// 	);
-	// }
 }

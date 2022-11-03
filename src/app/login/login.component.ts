@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StickerCollecrionService } from '../sticker-collection.service';
+
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,6 @@ export class LoginComponent implements OnInit {
   userNotLogged='0'
   userLogged='1'
   isUserLogged = "0"
-  constructor(private stickerCollectionService: StickerCollecrionService) { }
 
   ngOnInit(): void {
     localStorage.setItem("SesionUser", this.userNotLogged);
@@ -20,7 +19,6 @@ export class LoginComponent implements OnInit {
   onLogin(){
     localStorage.setItem("SesionUser", this.userLogged);
     console.log("localstorage:",localStorage.getItem("SesionUser"));
-    this.stickerCollectionService.getStickers();
     this.isUserLogged = '1';
   }
 
@@ -28,5 +26,4 @@ export class LoginComponent implements OnInit {
     console.log("LOGIN CHECK LOGIN:", this.isUserLogged)
     return this.isUserLogged;
   }
-
 }

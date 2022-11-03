@@ -9,9 +9,6 @@ declare var $: any;
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  
-  
-  constructor() { }
 
   ngOnInit(): void {
     console.log("USERSTAUSUS:");

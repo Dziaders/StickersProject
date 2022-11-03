@@ -26,11 +26,10 @@
         </tbody>
     </table>
 
-    <!-- <pre *ngIf="sticker">{{sticker.value | json}}</pre> -->
 
-    <ng-container *ngIf="sticker">
+    <ng-container *ngIf="stickerForm">
         <h2 class="py-4">Edit Sticker</h2>
-        <form [formGroup]="sticker">
+        <form [formGroup]="stickerForm">
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-6">
@@ -53,7 +52,7 @@
                 <div class="col-sm-4 offset-sm-2" >
                     <button type="submit" class="btn btn-primary mr-2" (click)="save()">Save</button>
                     <button type="reset" class="btn btn-outline-primary mr-2" (click)="cancel()">Cancel</button>
-                    <button type="reset" class="btn btn-danger mr-2" (click)="deleteSticker(sticker)">Delete</button>
+                    <button type="reset" class="btn btn-danger mr-2" (click)="deleteSticker(stickerForm)">Delete</button>
                 </div>
             </div>
         </form>

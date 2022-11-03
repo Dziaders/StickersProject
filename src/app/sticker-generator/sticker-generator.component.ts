@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StickerGeneratorComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
     return;
   }

@@ -7,9 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ErrorHandlerService implements ErrorHandler {
 
   private modalService: NgbModal
-  constructor(private injector: Injector) {
-
-  }
+  constructor(private injector: Injector) {}
 
   handleError(error: Error) {
       this.modalService = this.injector.get(NgbModal);

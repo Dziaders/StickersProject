@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,7 +11,6 @@ import { StickerCarouselComponent } from './sticker-carousel/sticker-carousel.co
 import { NgImageSliderModule } from 'ng-image-slider';
 import { AboutComponent } from './about/about.component';
 import { HowToUseComponent } from './how-to-use/how-to-use.component';
-
 import { HomepageComponent } from './homepage/homepage.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +22,6 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { StickerCollecrionService } from './sticker-collection.service';
-import { AuthGuardService } from './auth-guard.service';
 import { AddStickerComponent } from './gallery/add-sticker/add-sticker.component';
 import { ErrorHandlerService } from './error-handler/error-handler.service';
 import { ErrorHandler } from '@angular/core';
@@ -69,7 +65,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   
 
   ],
-  providers: [StickerCollecrionService, AuthGuardService, LoginComponent,
+  providers: [StickerCollecrionService, LoginComponent,
      {provide: ErrorHandler, useClass: ErrorHandlerService},
     ],
   bootstrap: [AppComponent]

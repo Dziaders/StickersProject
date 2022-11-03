@@ -2,8 +2,6 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { StickerCollecrionService } from 'src/app/sticker-collection.service';
-// import { STICKERS } from 'src/app/sticker-collection.service';
-// import { FirebaseDataService } from 'src/app/firebase-data.service';
 
 
 interface Sticker {
@@ -21,25 +19,18 @@ interface Sticker {
 })
 
 export class GalleryComponent implements OnInit {
+  stickers: Sticker[] = [];
+  stickerForm: FormGroup;
+  private subscription: Subscription
   constructor(private stickerCollectionService: StickerCollecrionService){}
 
   ngOnInit(){
-    this.stickerCollectionService.fetchStickers();
-    // this.stickers = this.stickerCollectionService.getStickers();
-    this.uploadStickers();
-    console.log('afterngoninit:',JSON.stringify(this.stickers));
-    this.subscription = this.stickerCollectionService.stickersChanged.subscribe((stickers: Sticker[]) =>{
-      this.stickers=stickers;
+    console.log('afterngoninit:', JSON.stringify(this.stickers));
+    this.subscription = this.stickerCollectionService.stickersChanged.subscribe((stickers: Sticker[]) => {
+      this.stickers = stickers;
     })
+    this.stickerCollectionService.fetchStickers();
   }
-
-  // stickers: Sticker[] = STICKERS;
-  stickers: Sticker[] = [];
-  sticker: FormGroup;
-  private subscription: Subscription
-  
-
-  
 
   uploadStickers(){
     this.stickers = this.stickerCollectionService.getStickers();
@@ -48,7 +39,7 @@ export class GalleryComponent implements OnInit {
 
   editSticker(sticker: Sticker) {
 
-    this.sticker = new FormGroup({
+    this.stickerForm = new FormGroup({
       id: new FormControl(sticker.id),
       name: new FormControl(sticker.name),
       collection: new FormControl(sticker.collection),
@@ -59,34 +50,29 @@ export class GalleryComponent implements OnInit {
   }
 
   save() {
-    let index = this.stickers.findIndex(sticker => sticker.id === this.sticker.value.id);
-    this.stickers[index] = this.sticker.value;
+    let index = this.stickers.findIndex(sticker => sticker.id === this.stickerForm.value.id);
+    this.stickers[index] = this.stickerForm.value;
     this.stickerCollectionService.storeStickers(this.stickers);
-    this.stickers = this.stickerCollectionService.getStickers();
   }
 
   cancel() {
-    this.sticker = null;
+    this.stickerForm = null;
   }
 
   deleteSticker(){
-  let index = this.stickers.findIndex(sticker => sticker.id === this.sticker.value.id);
-  this.stickers[index] = this.sticker.value;
-  console.log("Delete index:", JSON.stringify(index));
-  let newSet = this.stickerCollectionService.deleteSticker(index);
-  this.stickerCollectionService.storeStickers(newSet);
-  this.stickers = this.stickerCollectionService.getStickers();
-  }
+    let index = this.stickers.findIndex(sticker => sticker.id === this.stickerForm.value.id);
+    this.stickers[index] = this.stickerForm.value;
+    console.log("Delete index:", JSON.stringify(index));
+    let newSet = this.stickerCollectionService.deleteSticker(index);
+    this.stickerCollectionService.storeStickers(newSet);
+    }
 
-  smolDelete(stickerr){
-    let index = this.stickers.findIndex(sticker => sticker.id === stickerr.id);
+  smolDelete(stickerToDelete: Sticker){
+    let index = this.stickers.findIndex(sticker => sticker.id === stickerToDelete.id);
     console.log('INDEX TO DELETE:',index)
     let newSet = this.stickerCollectionService.deleteSticker(index);
     this.stickerCollectionService.storeStickers(newSet);
-    this.subscription = this.stickerCollectionService.stickersChanged.subscribe((stickers: Sticker[]) =>{
-      this.stickers=stickers;
-    })
-}
+  }
 }
 
 
