@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "stickers-project-e23f9": {
+      "hosting": {
+        "Projekt": [
+          "stickers-project-e23f9"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "stickers-project-e23f9"
+  }
+}

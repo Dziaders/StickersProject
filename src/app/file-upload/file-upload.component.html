@@ -1,0 +1,27 @@
+
+<!-- <div class="form-group col-12">
+    <input type="file"
+    id="file"
+    #userPhoto
+    (change)="onFileSelected($event)"
+    name="image"
+    autocomplete="off"
+    />
+   </div>
+   <router-outlet> </router-outlet> -->
+   
+
+
+<div class="custom-file" i>
+    <input type="file" class="custom-file-input" id="customFile" (change)="onChange($event)">
+    <label class="custom-file-label" for="customFile">Choose file</label>
+    <button (click)="onUpload()" class="btn btn-success">
+		Upload
+	</button>
+</div>
+
+
+
+<!-- <div class="container" *ngIf="loading">
+    <h3>Loading ...</h3>
+</div> -->

@@ -1,0 +1,25 @@
+////////////////////////Readme  - krótki opis projektu
+
+//////////////////////////Bootstrap - przejrzyj możliwości https://ng-bootstrap.github.io/#/home
+
+//////////////////////Dodajemy obsługę eslinta
+
+////////////////////////FileUploadService - URL przenieść do enviromnent
+
+//////////////////////////Jakiś ładniejszy title zamiast "Projekt"
+
+///////////////////////////W AppComponent jest nieużywane title
+
+////////////////////Migracja do scss  - https://sass-lang.com/
+
+/////////////////Nieużywany komponent:
+
+/////////////////////<p>sticker-collection works!</p>
+
+/////////////////////////////GalleryComponent - przenieść URL do enviromnent, ngOnInit nie wywołuje się
+
+/////////////////////////////////////Routing - przenieść do app-routing.module.ts
+
+Ogólnie - trzeba dorobić obsługę błędów oraz usunąć console.log. Warto użytkownikowi pokazać czy polecenie się udało lub nie.
+
+/////////////////////////Komunikacja z Firebasem - zrób serwis do obsługi requestów, na poszczególnych stronach odwołaj się do tego serwisu.
